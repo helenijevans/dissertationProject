@@ -15,8 +15,8 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <RNSketchCanvas
-            containerStyle={{ backgroundColor: 'grey', flex: 1 }}
-            canvasStyle={{ backgroundColor: 'white', flex: 1, width: "67.4%", maxHeight: "33.3%", justifyContent: "center", marginHorizontal: "16%", marginVertical: "51%"}}
+            containerStyle={{ backgroundColor: 'grey', flex: 1, justifyContent: "space-between" }}
+            canvasStyle={{ backgroundColor: 'white', width: "100%", paddingTop: "100%"}}
             defaultStrokeIndex={0}
             defaultStrokeWidth={5}
             clearComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Clear</Text></View>}
