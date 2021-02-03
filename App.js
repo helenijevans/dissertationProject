@@ -37,7 +37,7 @@ export default class App extends Component {
                 imageType: 'png'
               }
             }}
-            onSketchSaved={(success, filePath) => {Alert.alert("Successfully Saved","Image Path: " + filePath)}}
+            onSketchSaved={(success, filePath) => {Alert.alert("This is the app to work on","Image Path: " + filePath)}}
           />
         </View>
       </View>
