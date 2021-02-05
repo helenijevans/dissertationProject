@@ -34,7 +34,7 @@ export default class App extends Component {
                 folder: 'NN_Dataset',
                 filename: String(Math.ceil(Math.random() * 100000000)),
                 transparent: false,
-                imageType: 'png'
+                imageType: 'jpg'
               }
             }}
             onSketchSaved={(success, filePath) => {Alert.alert("This is the app to work on","Image Path: " + filePath)}}
