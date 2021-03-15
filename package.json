@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
+    "axios": "^0.21.1",
     "react": "16.13.1",
     "react-native": "0.63.4"
   },

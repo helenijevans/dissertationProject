@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {
   Platform, 
   StyleSheet,
@@ -10,6 +11,12 @@ import {
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photo: null
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -37,7 +44,44 @@ export default class App extends Component {
                 imageType: 'jpg'
               }
             }}
-            onSketchSaved={(success, filePath) => {Alert.alert("This is the app to work on","Image Path: " + filePath)}}
+            onSketchSaved={(success, filePath) => {
+              Alert.alert("This is the app to work on","Image Path: " + filePath);
+              this.state.photo = filePath;
+
+              const createFormData = (photo) => {
+                const data = new FormData();
+              
+                data.append("photo", {
+                  name: photo.fileName,
+                  type: photo.type,
+                  uri: filePath
+                    //Platform.OS === "android" ? photo.uri : photo.uri.replace("file://", "")
+                });
+              
+                // Object.keys(body).forEach(key => {
+                //   data.append(key, body[key]);
+                // });
+              
+                return data;
+              };
+
+              const handleUploadPhoto = () => {
+                fetch("http://ec2-18-133-229-24.eu-west-2.compute.amazonaws.com:5000/api/test", {
+                  method: "POST",
+                  body: createFormData(this.state.photo)
+                })
+                  .then(response => response.json())
+                  .then(response => {
+                    Alert.alert(response);
+                    this.setState({ photo: null });
+                  })
+                  .catch(error => {
+                    Alert.alert("Upload failed!" + error);
+                  });
+              };
+
+              handleUploadPhoto();
+            }}
           />
         </View>
       </View>
