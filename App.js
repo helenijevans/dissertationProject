@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component } from 'react';
 import axios from 'axios';
 import {
   Platform, 
@@ -6,6 +6,7 @@ import {
   Text,
   View,
   Alert,
+  Modal
 } from 'react-native';
 
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
@@ -14,7 +15,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      photo: null
+ 
     };
   }
   render() {
@@ -45,42 +46,39 @@ export default class App extends Component {
               }
             }}
             onSketchSaved={(success, filePath) => {
-              Alert.alert("This is the app to work on","Image Path: " + filePath);
-              this.state.photo = filePath;
-
-              const createFormData = (photo) => {
-                const data = new FormData();
-              
-                data.append("photo", {
-                  name: photo.fileName,
-                  type: photo.type,
-                  uri: filePath
-                    //Platform.OS === "android" ? photo.uri : photo.uri.replace("file://", "")
-                });
-              
-                // Object.keys(body).forEach(key => {
-                //   data.append(key, body[key]);
-                // });
-              
-                return data;
+              //Alert.alert("This is the app to work on","Image Path: " + filePath);
+                
+              const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: ('Miguel')
               };
-
-              const handleUploadPhoto = () => {
-                fetch("http://ec2-18-133-229-24.eu-west-2.compute.amazonaws.com:5000/api/test", {
-                  method: "POST",
-                  body: createFormData(this.state.photo)
-                })
-                  .then(response => response.json())
+              fetch('http://10.58.194.170:2000/api/test', requestOptions)
                   .then(response => {
-                    Alert.alert(response);
-                    this.setState({ photo: null });
+                    console.debug(JSON.stringify(response));
+                    console.log(response.text());
+                    Alert.alert("Answer", (JSON.stringify(response.text()).toString()));
                   })
-                  .catch(error => {
-                    Alert.alert("Upload failed!" + error);
-                  });
-              };
+              .catch(error => {
+                Alert.alert("Upload failed!" + JSON.stringify(error));
+                console.log(error);
+              });
 
-              handleUploadPhoto();
+              // fetch("http://192.168.0.13:5000/api/test", {
+              //   method: "POST",
+              //   headers: {
+              //     'Content-Type': 'image/jpeg',
+              //   },
+              // })
+              //   .then(response => response.json())
+              //   .then(response => {
+              //     Alert.alert(response);
+              //     this.setState({ photo: null });
+              //   })
+              //   .catch(error => {
+              //     Alert.alert("Upload failed!" + error);
+              //   });
+
             }}
           />
         </View>
