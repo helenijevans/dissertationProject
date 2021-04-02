@@ -45,24 +45,23 @@ export default class App extends Component {
                 imageType: 'jpg'
               }
             }}
-            onSketchSaved={(success, filePath) => {
+            onSketchSaved={async(success, filePath) => {
               //Alert.alert("This is the app to work on","Image Path: " + filePath);
                 
               const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain' },
-                body: ('Miguel')
+                body: ('Sophie')
               };
-              fetch('http://10.58.194.170:2000/api/test', requestOptions)
-                  .then(response => {
-                    console.debug(JSON.stringify(response));
-                    console.log(response.text());
-                    Alert.alert("Answer", (JSON.stringify(response.text()).toString()));
+              fetch('http://192.168.0.13:2000/api/test', requestOptions)
+                  .then(response => response.text())
+                  .then(data => {
+                    Alert.alert("Answer", JSON.stringify(data.toString()));
                   })
-              .catch(error => {
-                Alert.alert("Upload failed!" + JSON.stringify(error));
-                console.log(error);
-              });
+                  .catch(error => {
+                    Alert.alert("Upload failed!" + JSON.stringify(error));
+                    console.log(error);
+                  });
 
               // fetch("http://192.168.0.13:5000/api/test", {
               //   method: "POST",
