@@ -1,9 +1,14 @@
 package com.createdataset;
 
+import com.rnfs.RNFSPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
+import com.rnfs.RNFSPackage;
+import fr.snapp.imagebase64.RNImgToBase64Package;
+import fr.snapp.imagebase64.RNImgToBase64Package;
 import com.terrylinla.rnsketchcanvas.SketchCanvasPackage;
 import com.terrylinla.rnsketchcanvas.SketchCanvasPackage;
 import com.facebook.react.ReactInstanceManager;

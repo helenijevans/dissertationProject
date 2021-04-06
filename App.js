@@ -9,6 +9,7 @@ import {
   Modal
 } from 'react-native';
 
+import RNFS from 'react-native-fs';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 
 export default class App extends Component {
@@ -47,21 +48,24 @@ export default class App extends Component {
             }}
             onSketchSaved={async(success, filePath) => {
               //Alert.alert("This is the app to work on","Image Path: " + filePath);
-                
-              const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain' },
-                body: ('Sophie')
-              };
-              fetch('http://192.168.0.13:2000/api/test', requestOptions)
-                  .then(response => response.text())
-                  .then(data => {
-                    Alert.alert("Answer", JSON.stringify(data.toString()));
-                  })
-                  .catch(error => {
-                    Alert.alert("Upload failed!" + JSON.stringify(error));
-                    console.log(error);
-                  });
+              RNFS.readFile(filePath, "base64")
+              .then(base64String => {
+                const requestOptions = {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'image/jpeg' },
+                  body: (base64String)
+                };
+                fetch('http://192.168.0.13:5000/api/test', requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                      Alert.alert("Classification", JSON.stringify(data.classification));
+                    })
+                    .catch(error => {
+                      Alert.alert("Upload failed!" + JSON.stringify(error));
+                      console.log(error);
+                    });
+              })
+              .catch( error => console.log(error))
 
               // fetch("http://192.168.0.13:5000/api/test", {
               //   method: "POST",

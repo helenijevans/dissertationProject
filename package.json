@@ -12,8 +12,12 @@
   "dependencies": {
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "axios": "^0.21.1",
+    "buffer": "^6.0.3",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-fs": "2.0.1-rc.2",
+    "react-native-image-base64": "^0.1.4",
+    "react-native-image-colors": "^1.2.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

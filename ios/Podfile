@@ -10,6 +10,10 @@ target 'createDataset' do
 
   pod 'RNSketchCanvas', :path => '../node_modules/@terrylinla/react-native-sketch-canvas'
 
+  pod 'react-native-image-base64', :path => '../node_modules/react-native-image-base64'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'createDatasetTests' do
     inherit! :complete
     # Pods for testing
