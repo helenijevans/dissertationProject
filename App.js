@@ -16,27 +16,26 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
- 
+      questions: {
+        "Question 1: What is the character for good?": "hao3 good",
+        "Question 2: What is the character for you?": "ni3 you"
+      },
+      currentQ: ""
     };
+    
   }
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={{ flex: 1, flexDirection: 'column' }}>
+          <Text>{this.state.currentQ = Object.keys(this.state.questions)[Math.floor(Math.random()*Object.keys(this.state.questions).length)]}</Text>
           <RNSketchCanvas
             containerStyle={{ backgroundColor: 'grey', flex: 1, justifyContent: "space-between" }}
             canvasStyle={{ backgroundColor: 'white', width: "100%", paddingTop: "100%"}}
             defaultStrokeIndex={0}
             defaultStrokeWidth={5}
+            undoComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Undo</Text></View>}
             clearComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Clear</Text></View>}
-            strokeWidthComponent={(w) => {
-              return (<View style={styles.strokeWidthButton}>
-                <View  style={{
-                  backgroundColor: '#697382', marginHorizontal: 0,
-                  width: Math.sqrt(w / 3) * 10, height: Math.sqrt(w / 3) * 10, borderRadius: Math.sqrt(w / 3) * 10 / 2
-                }} />
-              </View>
-            )}}
             saveComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Save</Text></View>}
             savePreference={() => {
               return {
@@ -55,10 +54,12 @@ export default class App extends Component {
                   headers: { 'Content-Type': 'image/jpeg' },
                   body: (base64String)
                 };
-                fetch('http://192.168.0.13:5000/api/test', requestOptions)
+                fetch('http://192.168.0.72:5000/api/test', requestOptions)
                     .then(response => response.json())
                     .then(data => {
-                      Alert.alert("Classification", JSON.stringify(data.classification));
+                      var classification = data.classification;
+                      Alert.alert(classification == this.state.questions[this.state.currentQ]? "Correct" : "Incorrect");
+                      //Alert.alert("Classification", JSON.stringify(data.classification))
                     })
                     .catch(error => {
                       Alert.alert("Upload failed!" + JSON.stringify(error));
@@ -66,22 +67,6 @@ export default class App extends Component {
                     });
               })
               .catch( error => console.log(error))
-
-              // fetch("http://192.168.0.13:5000/api/test", {
-              //   method: "POST",
-              //   headers: {
-              //     'Content-Type': 'image/jpeg',
-              //   },
-              // })
-              //   .then(response => response.json())
-              //   .then(response => {
-              //     Alert.alert(response);
-              //     this.setState({ photo: null });
-              //   })
-              //   .catch(error => {
-              //     Alert.alert("Upload failed!" + error);
-              //   });
-
             }}
           />
         </View>
