@@ -28,7 +28,7 @@ const App = () => {
         <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
         <RNSketchCanvas
           ref = {clearFunction}
-          containerStyle={{ backgroundColor: 'grey', flex: 1, justifyContent: "center" }}
+          containerStyle={{ backgroundColor: 'orange', flex: 1, justifyContent: "center" }}
           canvasStyle={{ backgroundColor: 'white', width: "100%", paddingTop: "100%"}}
           defaultStrokeIndex={0}
           defaultStrokeWidth={5}
@@ -57,8 +57,8 @@ const App = () => {
                   .then(data => {
                     var classification = data.classification;
 
-                    // const isCorrectAnswer = (questions[Object.keys(questions)[currIndex]] === classification);
-                    const isCorrectAnswer = true;
+                    const isCorrectAnswer = (questions[Object.keys(questions)[currIndex]] === classification);
+                    //const isCorrectAnswer = true; //line to test app not neural network
                     Alert.alert(isCorrectAnswer ? "Correct" : "Incorrect");
 
                     if (isCorrectAnswer) {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: "center",
     textAlign: "center",
-    backgroundColor: "grey",
+    backgroundColor: "orange",
     paddingTop: 60,
     paddingLeft: 15,
     paddingRight: 15,
