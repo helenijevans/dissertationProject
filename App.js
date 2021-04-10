@@ -16,7 +16,9 @@ const App = () => {
   const [currIndex, setCurrIndex] = useState(0);
   const questions = {
     "Question 1: What is the character for good?": "hao3 good",
-    "Question 2: What is the character for you?": "ni3 you"
+    "Question 2: What is the character for you?": "ni3 you",
+    "Question 3: Fill in the blank for 'how are you' - 你好__?": "ma0 q",
+    "Question 4: Fill in the blank for 'and you' - 你__?": "ne0 q"
   }
   const clearFunction = useRef(null); // Undeclared reference - state likely updates upon declaration
 
@@ -55,7 +57,8 @@ const App = () => {
                   .then(data => {
                     var classification = data.classification;
 
-                    const isCorrectAnswer = (questions[Object.keys(questions)[currIndex]] === classification);
+                    // const isCorrectAnswer = (questions[Object.keys(questions)[currIndex]] === classification);
+                    const isCorrectAnswer = true;
                     Alert.alert(isCorrectAnswer ? "Correct" : "Incorrect");
 
                     if (isCorrectAnswer) {
@@ -66,7 +69,7 @@ const App = () => {
                     }
                   })
                   .catch(error => {
-                    Alert.alert("Upload failed!" + JSON.stringify(error));
+                    Alert.alerSt("Upload failed!" + JSON.stringify(error));
                     console.log(error);
                   });
             })
