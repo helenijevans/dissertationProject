@@ -15,10 +15,11 @@ import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 const App = () => {
   const [currIndex, setCurrIndex] = useState(0);
   const questions = {
-    "Question 1: What is the character for good?": "hao3 good",
-    "Question 2: What is the character for you?": "ni3 you",
-    "Question 3: Fill in the blank for 'how are you' - 你好__?": "ma0 q",
-    "Question 4: Fill in the blank for 'and you' - 你__?": "ne0 q"
+    "Question 1: What is the character for 'good'?": "hao3 good",
+    "Question 2: What is the character for 'you'?": "ni3 you",
+    "Question 3: What is the character for 'you' formally?": "nin2 you formal",
+    "Question 4: Fill in the blank for 'how are you' - 你好__?": "ma0 q",
+    "Question 5: Fill in the blank for 'and you' - 你__?": "ne0 q"
   }
   const clearFunction = useRef(null); // Undeclared reference - state likely updates upon declaration
 
@@ -28,7 +29,7 @@ const App = () => {
         <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
         <RNSketchCanvas
           ref = {clearFunction}
-          containerStyle={{ backgroundColor: 'orange', flex: 1, justifyContent: "center" }}
+          containerStyle={{ backgroundColor: 'grey', flex: 1, justifyContent: "center" }}
           canvasStyle={{ backgroundColor: 'white', width: "100%", paddingTop: "100%"}}
           defaultStrokeIndex={0}
           defaultStrokeWidth={5}
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: "center",
     textAlign: "center",
-    backgroundColor: "orange",
+    backgroundColor: "grey",
     paddingTop: 60,
     paddingLeft: 15,
     paddingRight: 15,
