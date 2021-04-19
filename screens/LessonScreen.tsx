@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import type {Node} from 'react';
 import {
+  Alert,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -12,7 +13,8 @@ import {
   PixelRatio,
   Image
 } from 'react-native';
-import {Input, Button} from 'react-native-elements';
+import Button from 'react-native-button';
+import {Input} from 'react-native-elements';
 import {
   Colors,
   DebugInstructions,
@@ -40,6 +42,21 @@ const LessonScreen = ({ navigation }) => {
 
   const { currentPage: pageIndex } = sliderState;
 
+  const showAlert = () =>
+  Alert.alert(
+     //This is title
+      'Hello',
+        //This is body text
+      'This is two option alert.',
+      [
+        {text: "No, It's Correct", onPress: () => console.log('No Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => console.log('Yes Pressed')},
+      ],
+      { cancelable: false }
+      //on clicking out side, Alert will not dismiss
+  );
+
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -51,15 +68,29 @@ const LessonScreen = ({ navigation }) => {
           pagingEnabled={true}
         >
           <View style={{ width, height }}>
-            <Image source={require('./../Slide1.jpg')}  style={styles.imageStyle} />
+            <Image source={require('./../src/images/Slide1.jpg')}  style={styles.imageStyle} />
             <View style={styles.wrapper}>
               <Text style={styles.header}>nǐ</Text>
               <Text style={styles.paragraph}>you</Text>
             </View>
+             <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={showAlert}
+              >
+                Character Composition
+              </Button>
+                           <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress = {() => navigation.navigate("Test")}
+              >
+                Test Shortcut
+              </Button>
           </View>
           <View style={{ width, height }}>
             <Image
-              source={require('./../Slide2.jpg')}
+              source={require('./../src/images/Slide2.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -69,7 +100,7 @@ const LessonScreen = ({ navigation }) => {
           </View>
           <View style={{ width, height }}>
             <Image
-              source={require('./../Slide3.jpg')}
+              source={require('./../src/images/Slide3.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -79,7 +110,7 @@ const LessonScreen = ({ navigation }) => {
           </View>
           <View style={{ width, height }}>
             <Image
-              source={require('./../Slide4.jpg')}
+              source={require('./../src/images/Slide4.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -89,7 +120,7 @@ const LessonScreen = ({ navigation }) => {
           </View>
           <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide5.jpg')}
+              source={require('./../src/images/Slide5.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -99,7 +130,7 @@ const LessonScreen = ({ navigation }) => {
           </View>
                     <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide6.jpg')}
+              source={require('./../src/images/Slide6.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -109,17 +140,18 @@ const LessonScreen = ({ navigation }) => {
           </View>
             <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide7.jpg')}
+              source={require('./../src/images/Slide7.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>nǐ ne</Text>
               <Text style={styles.paragraph}>What about you? (aka you + what about)</Text>
+              <Button style={styles.paragraph} text = "sssss"/>
             </View>
           </View>
             <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide9.jpg')}
+              source={require('./../src/images/Slide9.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -127,10 +159,18 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.paragraph}>you (formal) </Text>
               <Text style={styles.paragraph}> used as a respectful address</Text>
             </View>
+             <Button    
+              titleStyle={{
+                color: "white",
+                fontSize: 25,
+              }} 
+              title="Start Test"
+              onPress = {() => navigation.navigate("Test")}
+            />
           </View>
           <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide8.jpg')}
+              source={require('./../src/images/Slide8.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>

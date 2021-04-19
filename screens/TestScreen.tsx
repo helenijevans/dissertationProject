@@ -6,9 +6,9 @@ import {
   Text,
   View,
   Alert,
-  Modal
+  Modal,
 } from 'react-native';
-
+import Button from 'react-native-button';
 import RNFS from 'react-native-fs';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 
@@ -22,9 +22,22 @@ const TestScreen = ({ navigation }) => {
         "Question 5: Fill in the blank for 'and you' - 你__?": "ne0 q"
     }
     const clearFunction = useRef(null); // Undeclared reference - state likely updates upon declaration
+    increaseCount = () => {
+     if (currIndex < Object.keys(questions).length - 1) {
+       setCurrIndex(currIndex + 1);
+       clearFunction.current.clear();
+     }
+    }
+    const canSkip = true;
+
 
     return (
         <View style={styles.container}>
+        {currIndex != Object.keys(questions).length-1 &&
+          <Button style={{ fontSize: 20, color: 'black' }} onPress={increaseCount}>
+           Skip
+          </Button>
+        }
         <View style={{ flex: 1, flexDirection: 'column' }}>
             <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
             <RNSketchCanvas
@@ -60,7 +73,16 @@ const TestScreen = ({ navigation }) => {
 
                         const isCorrectAnswer = (questions[Object.keys(questions)[currIndex]] === classification);
                         //const isCorrectAnswer = true; //line to test app not neural network
-                        Alert.alert(isCorrectAnswer ? "Correct" : "Incorrect");
+                        //Alert.alert(isCorrectAnswer ? "Correct" : "Incorrect");
+                        Alert.alert(
+                          console.log(isCorrectAnswer),
+                          isCorrectAnswer ? "Correct" : "Incorrect" , 
+                            [
+                              {text: "No, It's Correct", onPress: () => console.log('No Pressed')},
+                              {text: 'OK'}, 
+                            ],
+                            { cancelable: false }
+                        );
 
                         if (isCorrectAnswer) {
                         if (currIndex < Object.keys(questions).length - 1) {
@@ -113,6 +135,11 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingLeft: 15,
     paddingRight: 15,
+  },
+  skip: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 36
   }
 });
 
