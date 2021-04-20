@@ -11,6 +11,7 @@ import {
 import Button from 'react-native-button';
 import RNFS from 'react-native-fs';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import RNSmtpMailer from "react-native-smtp-mailer";
 
 const TestScreen = ({ navigation }) => {
     const [currIndex, setCurrIndex] = useState(0);
@@ -22,22 +23,48 @@ const TestScreen = ({ navigation }) => {
         "Question 5: Fill in the blank for 'and you' - 你__?": "ne0 q"
     }
     const clearFunction = useRef(null); // Undeclared reference - state likely updates upon declaration
-    increaseCount = () => {
+    const increaseCount = () => {
      if (currIndex < Object.keys(questions).length - 1) {
        setCurrIndex(currIndex + 1);
        clearFunction.current.clear();
+     } else {
+       navigation.navigate("Lesson Completed")
      }
     }
     const canSkip = true;
 
+    const sendEmail = (filePath, expected, actual) => {
+      increaseCount(),
+      console.log('here'),
+      RNSmtpMailer.sendMail({
+      mailhost: "smtp.gmail.com",
+      port: "465",
+      ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
+      username: "hije1999@gmail.com",
+      password: "H>I>J>E1165",
+      recipients: "hije1999@gmail.com",
+      subject: "Issue with Dataset",
+      htmlBody: "<h1>Retrain Network</h1><p>Expected: " + expected + " <br>Actual: " + actual + "</p>",
+      attachmentPaths: [
+        filePath
+      ], 
+      attachmentNames: [
+        "image.jpg"
+      ], // required in android, these are renames of original files. in ios filenames will be same as specified in path. In a ios-only application, no need to define it
+    })
+      .then(success => console.log(success))
+      .catch(err => console.log(eror));  
+    }
+
+
+
+
 
     return (
         <View style={styles.container}>
-        {currIndex != Object.keys(questions).length-1 &&
           <Button style={{ fontSize: 20, color: 'black' }} onPress={increaseCount}>
-           Skip
+           Skip >>
           </Button>
-        }
         <View style={{ flex: 1, flexDirection: 'column' }}>
             <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
             <RNSketchCanvas
@@ -77,22 +104,23 @@ const TestScreen = ({ navigation }) => {
                         Alert.alert(
                           console.log(isCorrectAnswer),
                           isCorrectAnswer ? "Correct" : "Incorrect" , 
+                          isCorrectAnswer ?
                             [
-                              {text: "No, It's Correct", onPress: () => console.log('No Pressed')},
-                              {text: 'OK'}, 
+                              {text: "Next"},
+                            ] :
+                            [
+                              {text: "No, It's Correct", onPress:() => {sendEmail(filePath, questions[Object.keys(questions)[currIndex]], classification )}},
+                              {text: 'Retry'}, 
                             ],
                             { cancelable: false }
                         );
 
                         if (isCorrectAnswer) {
-                        if (currIndex < Object.keys(questions).length - 1) {
-                            setCurrIndex(currIndex + 1);
-                            clearFunction.current.clear();
-                        }
+                          increaseCount();
                         }
                     })
                     .catch(error => {
-                        Alert.alerSt("Upload failed!" + JSON.stringify(error));
+                        Alert.alert("Upload failed!" + JSON.stringify(error));
                         console.log(error);
                     });
                 })

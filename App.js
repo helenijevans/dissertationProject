@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LessonScreen from './screens/LessonScreen';
 import TestScreen from './screens/TestScreen';
+import FinishedLessonScreen from './screens/FinishedLessonScreen';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName = "Lesson">
         <Stack.Screen name="Lesson" component={LessonScreen} />
+        <Stack.Screen name="Lesson Completed" component={FinishedLessonScreen} />
         <Stack.Screen name="Test" component={TestScreen} />
       </Stack.Navigator>
     </NavigationContainer>
