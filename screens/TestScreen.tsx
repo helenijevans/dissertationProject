@@ -7,14 +7,19 @@ import {
   View,
   Alert,
   Modal,
+  Image,
+  Dimensions
 } from 'react-native';
 import Button from 'react-native-button';
 import RNFS from 'react-native-fs';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import RNSmtpMailer from "react-native-smtp-mailer";
+import { Icon } from 'react-native-elements';
 
 const TestScreen = ({ navigation }) => {
     const [currIndex, setCurrIndex] = useState(0);
+    const [modalVisible, setModalVisible] = useState(false);
+    const { width, height } = Dimensions.get('window');
     const questions = {
         "Question 1: What is the character for 'good'?": "hao3 good",
         "Question 2: What is the character for 'you'?": "ni3 you",
@@ -22,6 +27,14 @@ const TestScreen = ({ navigation }) => {
         "Question 4: Fill in the blank for 'how are you' - 你好__?": "ma0 q",
         "Question 5: Fill in the blank for 'and you' - 你__?": "ne0 q"
     }
+    const answers = [
+     {image: require('./../src/images/Slide2.jpg')},
+     {image: require('./../src/images/Slide1.jpg')},
+     {image: require('./../src/images/Slide9.jpg')},
+     {image: require('./../src/images/Slide4.jpg')},
+     {image: require('./../src/images/Slide6.jpg')}
+    ]
+
     const clearFunction = useRef(null); // Undeclared reference - state likely updates upon declaration
     const increaseCount = () => {
      if (currIndex < Object.keys(questions).length - 1) {
@@ -56,15 +69,23 @@ const TestScreen = ({ navigation }) => {
       .catch(err => console.log(eror));  
     }
 
-
-
-
-
     return (
         <View style={styles.container}>
-          <Button style={{ fontSize: 20, color: 'black' }} onPress={increaseCount}>
-           Skip >>
+          <Button style={{ fontSize: 20, color: 'black' }} onPress={() => setModalVisible(!modalVisible)}>
+           👁️ Peek Character
           </Button>
+          <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                  }}>
+                   <Text style={styles.closeText}
+                    onPress={() => setModalVisible(!modalVisible)}
+                    > Go Back </Text>
+                  <Image source ={answers[currIndex].image} style= {styles.image}/>
+                </Modal>  
         <View style={{ flex: 1, flexDirection: 'column' }}>
             <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
             <RNSketchCanvas
@@ -128,6 +149,9 @@ const TestScreen = ({ navigation }) => {
             }}
             />
         </View>
+        <Button style={{ fontSize: 20, color: 'black' }} onPress={increaseCount}>
+           Skip >>
+          </Button>
         </View>
     )
 }
@@ -168,7 +192,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 36
-  }
+  },
+  closeText: {
+    paddingTop: 50,
+    fontSize: 24,
+    color: '#00479e',
+    textAlign: 'center',
+  },
+   image: {
+    marginTop: 25,
+    marginBottom: 10,
+    width: '100%',
+    height: 350,
+  },
 });
 
 export default TestScreen;
