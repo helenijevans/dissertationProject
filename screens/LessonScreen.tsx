@@ -76,10 +76,9 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modalVisible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModalVisible(!modalVisible);
                   }}>
-                  <Image source={require('./../src/images/Slide1.gif')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide1-g.gif')} style= {styles.image}/>
                     <Text style = { styles.text }>
                         In Chinese characters similarly-defined radicals are used to firmly establish the meaning.
                         {'\n\n'}你 is a good example of this.
@@ -88,9 +87,9 @@ const LessonScreen = ({ navigation }) => {
                         {'\n'}尔 means you, that
                         {'\n\n'}Therefore 你 means person that is you, definitively you.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModalVisible(!modalVisible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -115,10 +114,9 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal2Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal2Visible(!modal2Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide2.gif')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide2-g.gif')} style= {styles.image}/>
                     <Text style = { styles.text }>
                         好 has an unknown origin however there is a theory. 
                         {'\n\n'} It is made out of two radicals: 女 and 子
@@ -126,9 +124,9 @@ const LessonScreen = ({ navigation }) => {
                         {'\n'}子 means child
                         {'\n\n'}Therefore 好 (which means good) is believed to be as it was seen as good for a woman to have a child.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal2Visible(!modal2Visible)}
-                    > Go Back </Text>2
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -153,7 +151,6 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal3Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal3Visible(!modal3Visible);
                   }}>
                   <Image source={require('./../src/images/Slide3-g.jpg')} style= {styles.image}/>
@@ -162,9 +159,9 @@ const LessonScreen = ({ navigation }) => {
                         {'\n\n'}It literally means "you good" 你(you) 好(good)
                         {'\n\n'}This translates to hello and can also be seen in a lot of dialects where "You alright/You good" is seen as a greeting.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal3Visible(!modal3Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -189,18 +186,17 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal4Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal4Visible(!modal4Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide4.gif')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide4-g.gif')} style= {styles.image}/>
                     <Text style = { styles.text }>
                        吗 is a semantic-phonetic compound. This means that part of the character gives a clue to its meaning and the other gives a clue as to its pronunciation.
                         {'\n\n'}口 is the left component and means mouth. When you see this in a character the word will mean something mouth or speech related. 
                         {'\n\n'}马 is the right component and means horse. It is prounced mǎ.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal4Visible(!modal4Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -225,18 +221,17 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal5Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal5Visible(!modal5Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide5.png')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide5-g.png')} style= {styles.image}/>
                     <Text style = { styles.text }>
                         你好吗 is made up of three characters you have seen previously in this lesson.
                         {'\n\n'}It literally means "you good?" 你(you) 好(good) 吗(?)
                         {'\n\n'}Adding 吗 to the end of a phrase turns it into a question. For example: You play football + 吗 = Do you play football?
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal5Visible(!modal5Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -261,18 +256,17 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal6Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal6Visible(!modal6Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide6.gif')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide6-g.gif')} style= {styles.image}/>
                     <Text style = { styles.text }>
                        呢 is also a semantic-phonetic compound. This means that part of the character gives a clue to its meaning and the other gives a clue as to its pronunciation.
                         {'\n\n'}口 is the left component and means mouth. When you see this in a character the word will mean something mouth or speech related. 
                         {'\n\n'}尼 is the right component and is prounced ní.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal6Visible(!modal6Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -297,18 +291,17 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal7Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal7Visible(!modal7Visible);
                   }}>
                   <Image source={require('./../src/images/Slide7-g.jpg')} style= {styles.image}/>
                     <Text style = { styles.text }>
                         你呢 is made up of two characters you have seen previously in this lesson.
-                        {'\n\n'}It literally means "what abot you?" 你(you) 呢(what about)
+                        {'\n\n'}It literally means "what about you?" 你(you) 呢(what about)
                         {'\n\n'}呢 here indicates that a previously asked question is to be applied to the preceding word ("What about ...?", "And ...?")
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal7Visible(!modal7Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -334,19 +327,18 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal9Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal9Visible(!modal9Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide9.gif')} style= {styles.image}/>
+                  <Image source={require('./../src/images/Slide9-g.gif')} style= {styles.image}/>
                     <Text style = { styles.text }>
                         This character is a respectful way of saying you. It can be substituted with 你 at anytime.
                         {'\n\n'}e.g. 您好 means hello (formal)
                         {'\n\n'}The only difference in the character is the 心 component. 
                         This character means heart and can be attributed to adding courtesy to the address.
                         </Text>
-                    <Text style={styles.closeText}
+                    {/* <Text style={styles.closeText}
                     onPress={() => setModal9Visible(!modal9Visible)}
-                    > Go Back </Text>
+                    > Go Back </Text> */}
                 </Modal>  
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -371,13 +363,9 @@ const LessonScreen = ({ navigation }) => {
                   transparent={false}
                   visible={modal8Visible}
                   onRequestClose={() => {
-                    Alert.alert('Modal has now been closed.');
                     setModal8Visible(!modal8Visible);
                   }}>
-                  <Image source={require('./../src/images/Slide8.png')} style= {styles.image}/>
-                    <Text style={styles.closeText}
-                    onPress={() => setModal8Visible(!modal8Visible)}
-                    > {'\n\n'}Go Back </Text>
+                  <Image source={require('./../src/images/Slide8-g.png')} style= {styles.image}/>
                 </Modal>   
               <Button
                 style={{ fontSize: 20, color: 'black' }}
@@ -467,7 +455,7 @@ const styles = StyleSheet.create({
     height: 350,
   },
   text: {
-    fontSize: 20,
+    fontSize: 16,
     padding: 30,
   },
   closeText: {

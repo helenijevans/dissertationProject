@@ -86,7 +86,7 @@ const TestScreen = ({ navigation }) => {
                     > Go Back </Text>
                   <Image source ={answers[currIndex].image} style= {styles.image}/>
                 </Modal>  
-        <View style={{ flex: 1, flexDirection: 'column' }}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-around' }}>
             <Text style = {styles.questions}>{Object.keys(questions)[currIndex]}</Text>
             <RNSketchCanvas
             ref = {clearFunction}
@@ -114,7 +114,7 @@ const TestScreen = ({ navigation }) => {
                     headers: { 'Content-Type': 'image/jpeg' },
                     body: (base64String)
                 };
-                fetch('http://192.168.0.72:5000/api/test', requestOptions)
+                fetch('http://138.68.176.32:5000/api/test', requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         var classification = data.classification;
