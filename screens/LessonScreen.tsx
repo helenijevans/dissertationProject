@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import type {Node} from 'react';
 import {
+  Alert,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -10,9 +11,11 @@ import {
   View,
   Dimensions,
   PixelRatio,
-  Image
+  Image,
+  Modal
 } from 'react-native';
-import {Input, Button} from 'react-native-elements';
+import Button from 'react-native-button';
+import {Input} from 'react-native-elements';
 import {
   Colors,
   DebugInstructions,
@@ -20,10 +23,20 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Video from 'react-native-video';
 
 
 const LessonScreen = ({ navigation }) => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modal2Visible, setModal2Visible] = useState(false);
+  const [modal3Visible, setModal3Visible] = useState(false);
+  const [modal4Visible, setModal4Visible] = useState(false);
+  const [modal5Visible, setModal5Visible] = useState(false);
+  const [modal6Visible, setModal6Visible] = useState(false);
+  const [modal7Visible, setModal7Visible] = useState(false);
+  const [modal9Visible, setModal9Visible] = useState(false);
+  const [modal8Visible, setModal8Visible] = useState(false);
   const { width, height } = Dimensions.get('window');
 
   const setSliderPage = (event: any) => {
@@ -40,6 +53,7 @@ const LessonScreen = ({ navigation }) => {
 
   const { currentPage: pageIndex } = sliderState;
 
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -51,75 +65,255 @@ const LessonScreen = ({ navigation }) => {
           pagingEnabled={true}
         >
           <View style={{ width, height }}>
-            <Image source={require('./../Slide1.jpg')}  style={styles.imageStyle} />
+            <Image source={require('./../src/images/Slide1.jpg')}  style={styles.imageStyle} />
             <View style={styles.wrapper}>
               <Text style={styles.header}>nǐ</Text>
               <Text style={styles.paragraph}>you</Text>
             </View>
+            <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                  }}>
+                  <Image source={require('./../src/images/Slide1-g.gif')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        In Chinese characters similarly-defined radicals are used to firmly establish the meaning.
+                        {'\n\n'}你 is a good example of this.
+                        It is made out of two radicals: 亻and 尔
+                        {'\n\n'}亻 is the radical for person
+                        {'\n'}尔 means you, that
+                        {'\n\n'}Therefore 你 means person that is you, definitively you.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModalVisible(!modalVisible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModalVisible(!modalVisible)}>
+                Character Composition
+              </Button>       
+            </View>
           </View>
           <View style={{ width, height }}>
             <Image
-              source={require('./../Slide2.jpg')}
+              source={require('./../src/images/Slide2.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>hǎo</Text>
               <Text style={styles.paragraph}>good</Text>
             </View>
-          </View>
-          <View style={{ width, height }}>
-            <Image
-              source={require('./../Slide3.jpg')}
-              style={styles.imageStyle}
-            />
-            <View style={styles.wrapper}>
-              <Text style={styles.header}>nǐ hǎo</Text>
-              <Text style={styles.paragraph}>Hello (aka you + good)</Text>
+            <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal2Visible}
+                  onRequestClose={() => {
+                    setModal2Visible(!modal2Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide2-g.gif')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        好 has an unknown origin however there is a theory. 
+                        {'\n\n'} It is made out of two radicals: 女 and 子
+                        {'\n\n'}女 is the radical for woman
+                        {'\n'}子 means child
+                        {'\n\n'}Therefore 好 (which means good) is believed to be as it was seen as good for a woman to have a child.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal2Visible(!modal2Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal2Visible(!modal2Visible)}>
+                Character Composition
+              </Button>       
             </View>
           </View>
           <View style={{ width, height }}>
             <Image
-              source={require('./../Slide4.jpg')}
+              source={require('./../src/images/Slide3.jpg')}
+              style={styles.imageStyle}
+            />
+            <View style={styles.wrapper}>
+              <Text style={styles.header}>nǐ hǎo</Text>
+              <Text style={styles.paragraph}>Hello</Text>
+            </View>
+            <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal3Visible}
+                  onRequestClose={() => {
+                    setModal3Visible(!modal3Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide3-g.jpg')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        你好 is made up of two characters you have seen previously in this lesson.
+                        {'\n\n'}It literally means "you good" 你(you) 好(good)
+                        {'\n\n'}This translates to hello and can also be seen in a lot of dialects where "You alright/You good" is seen as a greeting.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal3Visible(!modal3Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal3Visible(!modal3Visible)}>
+                Character Composition
+              </Button>       
+            </View>
+          </View>
+          <View style={{ width, height }}>
+            <Image
+              source={require('./../src/images/Slide4.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>ma</Text>
               <Text style={styles.paragraph}>Question particle</Text>
             </View>
+             <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal4Visible}
+                  onRequestClose={() => {
+                    setModal4Visible(!modal4Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide4-g.gif')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                       吗 is a semantic-phonetic compound. This means that part of the character gives a clue to its meaning and the other gives a clue as to its pronunciation.
+                        {'\n\n'}口 is the left component and means mouth. When you see this in a character the word will mean something mouth or speech related. 
+                        {'\n\n'}马 is the right component and means horse. It is prounced mǎ.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal4Visible(!modal4Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal4Visible(!modal4Visible)}>
+                Character Composition
+              </Button>       
+            </View>
           </View>
           <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide5.jpg')}
+              source={require('./../src/images/Slide5.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>nǐ hǎo ma</Text>
-              <Text style={styles.paragraph}>How are you? (aka you + good + ?)</Text>
+              <Text style={styles.paragraph}>How are you?</Text>
+            </View>
+             <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal5Visible}
+                  onRequestClose={() => {
+                    setModal5Visible(!modal5Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide5-g.png')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        你好吗 is made up of three characters you have seen previously in this lesson.
+                        {'\n\n'}It literally means "you good?" 你(you) 好(good) 吗(?)
+                        {'\n\n'}Adding 吗 to the end of a phrase turns it into a question. For example: You play football + 吗 = Do you play football?
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal5Visible(!modal5Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal5Visible(!modal5Visible)}>
+                Character Composition
+              </Button>       
             </View>
           </View>
-                    <View style={{ width, height }}>
+          <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide6.jpg')}
+              source={require('./../src/images/Slide6.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>ne</Text>
               <Text style={styles.paragraph}>Question particle</Text>
             </View>
-          </View>
-            <View style={{ width, height }}>
-            <Image 
-              source={require('./../Slide7.jpg')}
-              style={styles.imageStyle}
-            />
-            <View style={styles.wrapper}>
-              <Text style={styles.header}>nǐ ne</Text>
-              <Text style={styles.paragraph}>What about you? (aka you + what about)</Text>
+             <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal6Visible}
+                  onRequestClose={() => {
+                    setModal6Visible(!modal6Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide6-g.gif')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                       呢 is also a semantic-phonetic compound. This means that part of the character gives a clue to its meaning and the other gives a clue as to its pronunciation.
+                        {'\n\n'}口 is the left component and means mouth. When you see this in a character the word will mean something mouth or speech related. 
+                        {'\n\n'}尼 is the right component and is prounced ní.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal6Visible(!modal6Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal6Visible(!modal6Visible)}>
+                Character Composition
+              </Button>       
             </View>
           </View>
             <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide9.jpg')}
+              source={require('./../src/images/Slide7.jpg')}
+              style={styles.imageStyle}
+            />
+            <View style={styles.wrapper}>
+              <Text style={styles.header}>nǐ ne</Text>
+              <Text style={styles.paragraph}>What about you?</Text>
+            </View>
+            <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal7Visible}
+                  onRequestClose={() => {
+                    setModal7Visible(!modal7Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide7-g.jpg')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        你呢 is made up of two characters you have seen previously in this lesson.
+                        {'\n\n'}It literally means "what about you?" 你(you) 呢(what about)
+                        {'\n\n'}呢 here indicates that a previously asked question is to be applied to the preceding word ("What about ...?", "And ...?")
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal7Visible(!modal7Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal7Visible(!modal7Visible)}>
+                Character Composition
+              </Button>       
+            </View>
+          </View>
+            <View style={{ width, height }}>
+            <Image 
+              source={require('./../src/images/Slide9.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
@@ -127,26 +321,67 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.paragraph}>you (formal) </Text>
               <Text style={styles.paragraph}> used as a respectful address</Text>
             </View>
+             <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal9Visible}
+                  onRequestClose={() => {
+                    setModal9Visible(!modal9Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide9-g.gif')} style= {styles.image}/>
+                    <Text style = { styles.text }>
+                        This character is a respectful way of saying you. It can be substituted with 你 at anytime.
+                        {'\n\n'}e.g. 您好 means hello (formal)
+                        {'\n\n'}The only difference in the character is the 心 component. 
+                        This character means heart and can be attributed to adding courtesy to the address.
+                        </Text>
+                    {/* <Text style={styles.closeText}
+                    onPress={() => setModal9Visible(!modal9Visible)}
+                    > Go Back </Text> */}
+                </Modal>  
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal9Visible(!modal9Visible)}>
+                Character Composition
+              </Button>       
+            </View>
           </View>
           <View style={{ width, height }}>
             <Image 
-              source={require('./../Slide8.jpg')}
+              source={require('./../src/images/Slide8.jpg')}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
               <Text style={styles.header}>Read and understand the conversation above</Text>
               <Text style={styles.paragraph}>Got it? Move on to the test</Text>
             </View>
+            <View style = { styles.container }>
+              <Modal
+                  animationType = {"slide"}
+                  transparent={false}
+                  visible={modal8Visible}
+                  onRequestClose={() => {
+                    setModal8Visible(!modal8Visible);
+                  }}>
+                  <Image source={require('./../src/images/Slide8-g.png')} style= {styles.image}/>
+                </Modal>   
+              <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal8Visible(!modal8Visible)}>
+                Show Answer
+              </Button>       
+            </View>
           </View>
           <View style={[{ width, height }, styles.wrapper]}>
-            <Button    
-              titleStyle={{
-                color: "white",
-                fontSize: 25,
-              }} 
-              title="Start Test"
-              onPress = {() => navigation.navigate("Test")}
-            />
+            <Button
+                style={{ fontSize: 40, color: 'black' }}
+                containerStyle={{ padding: 10, height: 90, width: width,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress = {() => navigation.navigate("Test")}>
+                Start Test
+              </Button>  
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -172,6 +407,62 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 17,
   },
+   container: {
+    padding: 25,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    display: 'flex',
+    height: 60,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    backgroundColor: '#2AC062',
+    shadowColor: '#2AC062',
+    shadowOpacity: 0.5,
+    shadowOffset: { 
+      height: 10, 
+      width: 0 
+    },
+    shadowRadius: 25,
+  },
+  closeButton: {
+    display: 'flex',
+    height: 60,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FF3974',
+    shadowColor: '#2AC062',
+    shadowOpacity: 0.5,
+    shadowOffset: { 
+      height: 10, 
+      width: 0 
+    },
+    shadowRadius: 25,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 22,
+  },
+  image: {
+    marginTop: 25,
+    marginBottom: 10,
+    width: '100%',
+    height: 350,
+  },
+  text: {
+    fontSize: 16,
+    padding: 30,
+  },
+  closeText: {
+    fontSize: 24,
+    color: '#00479e',
+    textAlign: 'center',
+  }
 });
 
 

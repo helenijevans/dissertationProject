@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -16,16 +17,25 @@
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "axios": "^0.21.1",
     "buffer": "^6.0.3",
+    "core-js": "^3.10.2",
+    "expo": "^41.0.1",
     "react": "16.13.1",
     "react-native": "0.63.4",
-    "react-native-elements": "^3.3.2",
+    "react-native-button": "^3.0.1",
+    "react-native-dotenv": "^2.5.5",
+    "react-native-elements": "^3.4.0",
+    "react-native-fast-image": "^8.3.4",
     "react-native-fs": "2.0.1-rc.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-base64": "^0.1.4",
     "react-native-image-colors": "^1.2.7",
+    "react-native-mail": "^6.1.0",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "^3.1.1"
+    "react-native-screens": "^3.1.1",
+    "react-native-smtp-mailer": "^1.2.4",
+    "react-native-vector-icons": "*",
+    "react-native-video": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
