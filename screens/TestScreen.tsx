@@ -72,7 +72,7 @@ const TestScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
           <Button style={{ fontSize: 20, color: 'black' }} onPress={() => setModalVisible(!modalVisible)}>
-           👁️ Peek Character
+           👁️ Peek Character 
           </Button>
           <Modal
                   animationType = {"slide"}

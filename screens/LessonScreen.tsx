@@ -70,8 +70,14 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>nǐ</Text>
               <Text style={styles.paragraph}>you</Text>
             </View>
+            <Button
+              style={{ fontSize: 20, color: 'black'}}
+              containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+              onPress={() => setModalVisible(!modalVisible)}>
+              Character Composition
+            </Button>  
             <View style = { styles.container }>
-              <Modal
+              <Modal style={{overflow: 'hidden'}}
                   animationType = {"slide"}
                   transparent={false}
                   visible={modalVisible}
@@ -90,13 +96,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModalVisible(!modalVisible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModalVisible(!modalVisible)}>
-                Character Composition
-              </Button>       
+                </Modal>       
             </View>
           </View>
           <View style={{ width, height }}>
@@ -108,6 +108,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>hǎo</Text>
               <Text style={styles.paragraph}>good</Text>
             </View>
+            <Button
+              style={{ fontSize: 20, color: 'black' }}
+              containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+              onPress={() => setModal2Visible(!modal2Visible)}>
+              Character Composition
+            </Button> 
             <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -127,13 +133,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal2Visible(!modal2Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal2Visible(!modal2Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>        
             </View>
           </View>
           <View style={{ width, height }}>
@@ -145,6 +145,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>nǐ hǎo</Text>
               <Text style={styles.paragraph}>Hello</Text>
             </View>
+            <Button
+              style={{ fontSize: 20, color: 'black' }}
+              containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+              onPress={() => setModal3Visible(!modal3Visible)}>
+              Character Composition
+            </Button> 
             <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -162,13 +168,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal3Visible(!modal3Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal3Visible(!modal3Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>        
             </View>
           </View>
           <View style={{ width, height }}>
@@ -180,6 +180,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>ma</Text>
               <Text style={styles.paragraph}>Question particle</Text>
             </View>
+            <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal4Visible(!modal4Visible)}>
+                Character Composition
+            </Button>
              <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -197,13 +203,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal4Visible(!modal4Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal4Visible(!modal4Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>         
             </View>
           </View>
           <View style={{ width, height }}>
@@ -215,6 +215,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>nǐ hǎo ma</Text>
               <Text style={styles.paragraph}>How are you?</Text>
             </View>
+            <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal5Visible(!modal5Visible)}>
+                Character Composition
+              </Button>  
              <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -232,13 +238,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal5Visible(!modal5Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal5Visible(!modal5Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>       
             </View>
           </View>
           <View style={{ width, height }}>
@@ -250,6 +250,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>ne</Text>
               <Text style={styles.paragraph}>Question particle</Text>
             </View>
+            <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal6Visible(!modal6Visible)}>
+                Character Composition
+            </Button>  
              <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -267,13 +273,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal6Visible(!modal6Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal6Visible(!modal6Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>       
             </View>
           </View>
             <View style={{ width, height }}>
@@ -281,6 +281,14 @@ const LessonScreen = ({ navigation }) => {
               source={require('./../src/images/Slide7.jpg')}
               style={styles.imageStyle}
             />
+            <View>
+               <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal7Visible(!modal7Visible)}>
+                Character Composition
+              </Button>    
+            </View>
             <View style={styles.wrapper}>
               <Text style={styles.header}>nǐ ne</Text>
               <Text style={styles.paragraph}>What about you?</Text>
@@ -302,13 +310,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal7Visible(!modal7Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal7Visible(!modal7Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>     
             </View>
           </View>
             <View style={{ width, height }}>
@@ -316,6 +318,12 @@ const LessonScreen = ({ navigation }) => {
               source={require('./../src/images/Slide9.jpg')}
               style={styles.imageStyle}
             />
+             <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal9Visible(!modal9Visible)}>
+                Character Composition
+              </Button> 
             <View style={styles.wrapper}>
               <Text style={styles.header}>nín</Text>
               <Text style={styles.paragraph}>you (formal) </Text>
@@ -339,13 +347,7 @@ const LessonScreen = ({ navigation }) => {
                     {/* <Text style={styles.closeText}
                     onPress={() => setModal9Visible(!modal9Visible)}
                     > Go Back </Text> */}
-                </Modal>  
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal9Visible(!modal9Visible)}>
-                Character Composition
-              </Button>       
+                </Modal>        
             </View>
           </View>
           <View style={{ width, height }}>
@@ -357,6 +359,12 @@ const LessonScreen = ({ navigation }) => {
               <Text style={styles.header}>Read and understand the conversation above</Text>
               <Text style={styles.paragraph}>Got it? Move on to the test</Text>
             </View>
+            <Button
+                style={{ fontSize: 20, color: 'black' }}
+                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
+                onPress={() => setModal8Visible(!modal8Visible)}>
+                Show Answer
+            </Button>       
             <View style = { styles.container }>
               <Modal
                   animationType = {"slide"}
@@ -367,12 +375,7 @@ const LessonScreen = ({ navigation }) => {
                   }}>
                   <Image source={require('./../src/images/Slide8-g.png')} style= {styles.image}/>
                 </Modal>   
-              <Button
-                style={{ fontSize: 20, color: 'black' }}
-                containerStyle={{ padding: 10, height: 45,overflow: 'hidden', borderRadius: 4, backgroundColor: 'lightblue' }}
-                onPress={() => setModal8Visible(!modal8Visible)}>
-                Show Answer
-              </Button>       
+
             </View>
           </View>
           <View style={[{ width, height }, styles.wrapper]}>
@@ -402,6 +405,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     fontWeight: 'bold',
+    marginLeft: 10,
+    textAlign: 'center',
     marginBottom: 20,
   },
   paragraph: {
@@ -455,7 +460,7 @@ const styles = StyleSheet.create({
     height: 350,
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     padding: 30,
   },
   closeText: {
