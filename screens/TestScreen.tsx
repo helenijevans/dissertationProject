@@ -53,9 +53,9 @@ const TestScreen = ({ navigation }) => {
       mailhost: "smtp.gmail.com",
       port: "465",
       ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
-      username: "hije1999@gmail.com",
-      password: "H>I>J>E1165",
-      recipients: "hije1999@gmail.com",
+      username: "the.chinese.learning.app@gmail.com",
+      password: "Dissertation2021",
+      recipients: "the.chinese.learning.app@gmail.com",
       subject: "Issue with Dataset",
       htmlBody: "<h1>Retrain Network</h1><p>Expected: " + expected + " <br>Actual: " + actual + "</p>",
       attachmentPaths: [
@@ -66,7 +66,7 @@ const TestScreen = ({ navigation }) => {
       ], // required in android, these are renames of original files. in ios filenames will be same as specified in path. In a ios-only application, no need to define it
     })
       .then(success => console.log(success))
-      .catch(err => console.log(eror));  
+      .catch(err => console.log(err));  
     }
 
     return (
