@@ -94,9 +94,9 @@ const TestScreen = ({ navigation }) => {
             canvasStyle={{ backgroundColor: 'white', width: "100%", paddingTop: "100%"}}
             defaultStrokeIndex={0}
             defaultStrokeWidth={5}
-            undoComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Undo</Text></View>}
-            clearComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Clear</Text></View>}
-            saveComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}>Save</Text></View>}
+            undoComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}><Icon name='undo' /></Text></View>}
+            clearComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}><Icon name='close' /></Text></View>}
+            saveComponent={<View style={styles.functionButton}><Text style={{color: '#697382'}}><Icon name='send' /></Text></View>}
             savePreference={() => {
                 return {
                 folder: 'NN_Dataset',
@@ -175,8 +175,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'
   },
   functionButton: {
-    marginHorizontal: 2.5, marginVertical: 8, height: 30, width: 60,
-    backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 10,
+    marginHorizontal: 2.5, marginVertical: 8, height: 30, width: 50,
+    backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 30,
   },
   questions: {
     fontWeight: "bold",

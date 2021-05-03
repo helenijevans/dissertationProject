@@ -12,7 +12,8 @@ import {
   Dimensions,
   PixelRatio,
   Image,
-  Modal
+  Modal,
+  TouchableOpacity
 } from 'react-native';
 import Button from 'react-native-button';
 import {Input} from 'react-native-elements';
@@ -42,27 +43,42 @@ const LessonScreen = ({ navigation }) => {
   const setSliderPage = (event: any) => {
     const { currentPage } = sliderState;
     const { x } = event.nativeEvent.contentOffset;
-    const indexOfNextScreen = Math.floor(x / width);
-    if (indexOfNextScreen !== currentPage) {
-      setSliderState({
-        ...sliderState,
-        currentPage: indexOfNextScreen,
-      });
-    }
+    const indexOfNextScreen = Math.ceil(x / width);
+    setSliderState({
+      ...sliderState,
+      currentPage: indexOfNextScreen,
+    });
   };
-
+  
   const { currentPage: pageIndex } = sliderState;
-
+  let bullets = [];
+  for (let i = 0; i <= 9; i++) {
+    bullets.push(
+      <TouchableOpacity key={i}>
+        <Text
+        key={i}
+        style={{
+          ...styles.bullet,
+          opacity: (sliderState.currentPage) === i ? 0.5 : 0.2
+        }}>
+        &bull;
+        </Text>
+      </TouchableOpacity>
+        
+    );
+  }
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
-          style={{ flex: 1 }}
           horizontal={true}
-          scrollEventThrottle={16}
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
           pagingEnabled={true}
+          onScroll={setSliderPage}
         >
           <View style={{ width, height }}>
             <Image source={require('./../src/images/Slide1.jpg')}  style={styles.imageStyle} />
@@ -387,6 +403,9 @@ const LessonScreen = ({ navigation }) => {
               </Button>  
           </View>
         </ScrollView>
+        <View style={styles.bullets}>
+          {bullets}
+        </View>
       </SafeAreaView>
     </>
   );
@@ -467,6 +486,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#00479e',
     textAlign: 'center',
+  },
+  bullets: {
+    position: 'absolute',
+    bottom: 50,
+    paddingLeft: 90,
+    display: 'flex',
+    //justifyContent: 'flex-start',
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    paddingTop: 5,
+  },
+  bullet: {
+    paddingHorizontal: 6,
+    fontSize: 30,
   }
 });
 
